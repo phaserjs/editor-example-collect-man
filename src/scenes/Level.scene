@@ -12,7 +12,8 @@
         "createMethodName": "editorCreate",
         "sceneKey": "Level",
         "borderWidth": 672,
-        "borderHeight": 480
+        "borderHeight": 480,
+        "box2dDebugEditor": false
     },
     "displayList": [
         {
@@ -82,7 +83,7 @@
         {
             "type": "Layer",
             "id": "75befe4c-cf33-466e-a7a7-fb63b397e814",
-            "label": "coinsLayer",
+            "label": "itemsLayer",
             "list": [
                 {
                     "prefabId": "88de9e86-eaaa-489d-8992-a0e40b43a193",
@@ -637,23 +638,72 @@
             "label": "uiLayer",
             "list": [
                 {
-                    "type": "Text",
+                    "prefabId": "6fc5c65b-c6e3-4e17-81cc-878cef4671d3",
                     "id": "b1965028-cfba-4111-a2aa-7bc3dcf8686e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "visible"
+                    ],
                     "label": "tutorialText",
                     "scope": "CLASS",
                     "x": 336,
                     "y": 240,
-                    "originX": 0.5,
-                    "originY": 0.5,
                     "visible": false,
-                    "text": "Arrow keys to move!\nPress Spacebar to Start",
-                    "align": "center",
-                    "fontFamily": "arial black",
-                    "fontSize": "42px",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 8
+                    "text": "Arrow keys to move!\nPress Spacebar to Start"
+                },
+                {
+                    "prefabId": "6fc5c65b-c6e3-4e17-81cc-878cef4671d3",
+                    "id": "c51fc178-250d-4bb7-94f8-cf7621abd6e5",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "originX",
+                        "originY",
+                        "fontSize",
+                        "text"
+                    ],
+                    "label": "scoreText",
+                    "scope": "CLASS",
+                    "x": 0,
+                    "y": 454.34375,
+                    "originX": 0,
+                    "originY": 0,
+                    "text": "Score: 0",
+                    "fontSize": "20px"
+                },
+                {
+                    "prefabId": "6fc5c65b-c6e3-4e17-81cc-878cef4671d3",
+                    "id": "c8e80470-aea6-4076-8da5-3d6575dd83e0",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "fontSize",
+                        "visible"
+                    ],
+                    "label": "gameOverText",
+                    "scope": "CLASS",
+                    "x": 336,
+                    "y": 240,
+                    "visible": false,
+                    "text": "Game Over",
+                    "fontSize": "64px"
                 }
             ]
+        },
+        {
+            "prefabId": "2862e788-3a61-4d4d-942e-d3e8ad7ab8ae",
+            "id": "4d863f4e-f98e-4081-866d-1b709cabdbc9",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "player",
+            "scope": "CLASS",
+            "x": 320,
+            "y": 96
         }
     ],
     "plainObjects": [
@@ -680,7 +730,7 @@
             "layers": [
                 {
                     "name": "levelLayer",
-                    "data": "[45,46,46,46,46,46,46,46,46,47,5,45,46,46,46,46,46,46,46,46,47,57,0,0,0,0,0,0,0,0,60,17,60,0,2,3,3,2,0,2,0,59,57,0,81,83,0,81,46,47,0,69,46,71,0,45,46,83,0,81,83,0,59,57,0,0,0,0,0,0,60,0,0,96,0,0,60,0,0,0,0,0,0,59,57,2,81,83,0,48,0,69,46,83,0,81,46,71,0,48,0,81,83,0,59,60,3,0,0,0,60,0,0,0,0,0,0,0,0,0,60,0,0,0,0,60,69,46,46,83,0,69,46,47,0,53,56,55,0,45,46,71,0,81,46,46,71,104,0,0,0,0,0,0,60,0,65,68,67,0,60,0,0,2,0,0,0,104,45,46,46,83,0,48,0,72,0,77,79,80,0,72,3,48,2,81,46,46,47,60,0,0,0,0,60,0,0,0,0,95,0,0,0,0,60,2,0,0,0,60,57,0,81,47,0,72,0,48,0,81,46,83,0,48,0,72,0,45,83,0,59,57,0,0,60,0,0,0,60,0,0,84,0,0,60,3,3,0,60,0,0,59,69,47,0,72,0,81,83,69,83,0,0,0,81,71,81,83,0,72,0,45,71,5,60,0,0,2,2,0,0,0,0,58,0,0,0,0,3,0,0,0,60,5,17,69,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,71,17]",
+                    "data": "[45,46,46,46,46,46,46,46,46,47,5,45,46,46,46,46,46,46,46,46,47,57,0,0,0,0,0,0,0,0,60,17,60,0,2,3,3,2,0,2,0,59,57,0,81,83,0,81,46,47,0,69,46,71,0,45,46,83,0,81,83,0,59,57,0,0,0,0,0,0,60,0,0,0,0,0,60,0,0,0,0,0,0,59,57,2,81,83,0,48,0,69,46,83,0,81,46,71,0,48,0,81,83,0,59,60,3,0,0,0,60,0,0,0,0,0,0,0,0,0,60,0,0,0,0,60,69,46,46,83,0,69,46,47,0,53,56,55,0,45,46,71,0,81,46,46,71,104,0,0,0,0,0,0,60,0,65,68,67,0,60,0,0,2,0,0,0,104,45,46,46,83,0,48,0,72,0,77,79,80,0,72,3,48,2,81,46,46,47,60,0,0,0,0,60,0,0,0,0,95,0,0,0,0,60,2,0,0,0,60,57,0,81,47,0,72,0,48,0,81,46,83,0,48,0,72,0,45,83,0,59,57,0,0,60,0,0,0,60,0,0,84,0,0,60,3,3,0,60,0,0,59,69,47,0,72,0,81,83,69,83,0,0,0,81,71,81,83,0,72,0,45,71,5,60,0,0,2,2,0,0,0,0,58,0,0,0,0,3,0,0,0,60,5,17,69,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,71,17]",
                     "width": 21,
                     "height": 15,
                     "tileWidth": 32,
@@ -695,6 +745,28 @@
                     "tileHeight": 32
                 }
             ]
+        },
+        {
+            "id": "1ac18129-7f75-4264-84a7-b77e81b42379",
+            "type": "Collider",
+            "label": "player_vs_enemies",
+            "scope": "LOCAL",
+            "object1": "player",
+            "object2": "enemiesLayer.list",
+            "overlapOnly": true,
+            "collideCallback": "this.hitPlayer",
+            "callbackContext": "this"
+        },
+        {
+            "id": "50035d0d-a532-45b9-b0f9-df423a29cc78",
+            "type": "Collider",
+            "label": "player_vs_items",
+            "scope": "LOCAL",
+            "object1": "player",
+            "object2": "itemsLayer.list",
+            "overlapOnly": true,
+            "collideCallback": "this.collectItem",
+            "callbackContext": "this"
         }
     ],
     "meta": {

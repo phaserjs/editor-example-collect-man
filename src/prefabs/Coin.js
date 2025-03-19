@@ -22,7 +22,12 @@ export default class Coin extends Phaser.Physics.Arcade.Image {
 
 	/* START-USER-CODE */
 
-	// Write your code here.
+	collect () {
+
+        this.scene.updateScore(10);
+
+        this.destroy(true);
+    }
 
 	/* END-USER-CODE */
 }
